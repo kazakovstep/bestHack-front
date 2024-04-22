@@ -1,10 +1,23 @@
 import React from 'react';
-import styles from '../../styles/Main.module.css'
+import styles from "../../styles/main.module.css"
+import {Alert} from "../../components/Alert/Alert";
 
 const Main = () => {
     return (
-        <div>
-            Main
+        <div className={styles.page}>
+            <Alert/>
+            <Alert/>
+            <Alert/>
+            <Alert/>
+            <Alert/>
+            <Alert/>
+            <Alert/>
+            <Alert/>
+            <Alert/>
+            <Alert/>
+            <Alert/>
+            <Alert/>
+            <Alert/>
         </div>
     );
 };
