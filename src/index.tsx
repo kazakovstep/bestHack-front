@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.css';
 import './styles/global.css'
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Main from "./pages/main/main";
+import Register from "./pages/register/page";
+import Login from "./pages/login/page";
 
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
                 <Route path={"/"} element={<Main/>}/>
+                <Route path={"/register"} element={<Register/>}/>
+                <Route path={"/login"} element={<Login/>}/>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>,
