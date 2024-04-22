@@ -1,7 +1,6 @@
 .alert {
     display: flex;
     align-items: flex-end;
-    width: 100%;
     border-radius: 8px;
     position: relative;
     height: 100%;
@@ -12,6 +11,7 @@
 .userInfo {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .imgBlock {
@@ -37,7 +37,23 @@
     gap: 1rem;
     width: calc(100% - 3rem);
 }
+.copyButton{
+    padding: 0!important;
+}
+.copyButton svg {
+    width: 25px;
+    height: 25px;
+    stroke: var(--gray-700);
+    transition: 300ms;
+}
 
-.alertInfo{
-    padding-right: 20%;
+.buttons {
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.copyButton:hover svg {
+    stroke: var(--success);
 }
