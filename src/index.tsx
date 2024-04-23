@@ -6,14 +6,20 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Main from "./pages/main/main";
 import Register from "./pages/register/page";
 import Login from "./pages/login/page";
-import Admin from "./pages/admin/admin";
+import AdminPush from "./pages/admin/push";
+import AdminUsers from "./pages/admin/users"
+import AdminRoles from "./pages/admin/settingsRoles"
+import AdminStory from "./pages/admin/storyActions"
 
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
                 <Route path={"/"} element={<Main/>}/>
-                <Route path={"/admin"} element={<Admin/>}/>
+                <Route path={"/admin/push"} element={<AdminPush/>}/>
+                <Route path={"/admin/users"} element={<AdminUsers/>}/>
+                <Route path={"/admin/roles"} element={<AdminRoles/>}/>
+                <Route path={"/admin/story"} element={<AdminStory/>}/>
                 <Route path={"/register"} element={<Register/>}/>
                 <Route path={"/login"} element={<Login/>}/>
             </Routes>

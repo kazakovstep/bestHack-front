@@ -1,0 +1,21 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    grid-gap: 20px;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "user title"
+    "text text";
+}
+
+.user{
+    grid-area: user;
+}
+
+.title{
+    grid-area: title;
+}
+
+.text{
+    grid-area: text;
+}

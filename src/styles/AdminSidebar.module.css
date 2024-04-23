@@ -22,11 +22,19 @@
 .sidebarItem{
     padding: 10px;
     border-radius: 7px;
-    border: 1px solid aqua;
+    transition: 0.3s linear;
+}
+
+.sidebarItem:hover{
+    background-color: var(--gray-300);
 }
 
 .sidebarList{
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.active{
+    background-color: var(--gray-400);
 }
