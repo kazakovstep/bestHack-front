@@ -1,0 +1,19 @@
+.footer{
+    background-color: var(--white);
+    display: grid;
+    box-shadow: 0 0 2rem 0 rgba(33, 37, 41, .1);
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 14px 22px;
+}
+
+.footerActions{
+    display: flex;
+    gap: 20px;
+}
+
+.footerAction{
+    font-weight: 600;
+    font-size: 15px;
+    font-family: var(--font-family);
+}

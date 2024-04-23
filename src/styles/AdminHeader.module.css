@@ -1,0 +1,13 @@
+.navigation{
+    padding: 14px 22px;
+    border-bottom: 0;
+    box-shadow: 0 0 2rem 0 rgba(33, 37, 41, .1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goToMain{
+    color: var(--danger);
+    font-family: var(--font-family);
+}

@@ -1,0 +1,32 @@
+.sidebar{
+    padding: 14px 22px;
+    background-color: #183258;
+    color: var(--white);
+}
+
+.title{
+    color: inherit
+}
+
+.hItem{
+    color: inherit;
+}
+
+
+.sidebarList[class],
+.sidebarList{
+    list-style: none;
+    padding: 0;
+}
+
+.sidebarItem{
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid aqua;
+}
+
+.sidebarList{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

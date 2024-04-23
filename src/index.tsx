@@ -6,12 +6,14 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Main from "./pages/main/main";
 import Register from "./pages/register/page";
 import Login from "./pages/login/page";
+import Admin from "./pages/admin/admin";
 
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
                 <Route path={"/"} element={<Main/>}/>
+                <Route path={"/admin"} element={<Admin/>}/>
                 <Route path={"/register"} element={<Register/>}/>
                 <Route path={"/login"} element={<Login/>}/>
             </Routes>

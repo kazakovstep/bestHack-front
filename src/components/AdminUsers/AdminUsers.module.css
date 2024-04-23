@@ -1,0 +1,38 @@
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x: auto;
+    caption-side: bottom;
+}
+
+.delete{
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+
+}
+
+.deleteBtn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete svg > path{
+    transition: 0.3s ease-in-out;
+}
+
+.delete:hover svg > path{
+    stroke: red;
+}
+
+.head{
+    margin-bottom: 20px;
+}
+
+.userRow{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    margin-bottom: 10px;
+}
