@@ -9,7 +9,7 @@ const AdminForm = () => {
     return (
         <AdminCard title={"Отправить Push-уведомление"}>
             <div className={styles.wrapper}>
-                <Input className={styles.user}/>
+                <Input placeholder={"Пользователь"} className={styles.user}/>
                 <Input placeholder={"Заголовок"} className={styles.title}/>
                 <Textarea placeholder={"Тело уведомления"} state={"default"} className={styles.text}/>
             </div>

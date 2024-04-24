@@ -35,7 +35,7 @@
 }
 
 .input {
-    font-family: 'Manrope', sans-serif!important;
+    font-family: var(--font-family) !important;
     resize: none;
     outline: none;
     display: flex;
@@ -49,6 +49,10 @@
     line-height: 1.5rem;
     width: 100%;
     overflow: hidden;
+}
+
+.input::placeholder{
+    font-family: var(--font-family) !important;
 }
 
 .p {
@@ -79,7 +83,7 @@
 
 .default:focus {
     color: var(--primary-black);
-    border: 1px solid var(--secondary-blue);
+    border: 1px solid var(--success);
     box-shadow: 0 0 4px 0 rgba(129, 236, 255, 0.75);
     transition: 300ms;
 }
