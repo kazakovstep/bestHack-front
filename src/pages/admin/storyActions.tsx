@@ -59,21 +59,6 @@ const StoryActions = () => {
                         who={"Рудик"}
                         whom={"Роналду"}
                     />
-                    {/*<UserRow*/}
-                    {/*    username={"Rudiko"}*/}
-                    {/*    role={"Admin"}*/}
-                    {/*    email={"chakryan_rudik@mail.ru"}*/}
-                    {/*/>*/}
-                    {/*<UserRow*/}
-                    {/*    username={"Rudiko"}*/}
-                    {/*    role={"Admin"}*/}
-                    {/*    email={"chakryan_rudik@mail.ru"}*/}
-                    {/*/>*/}
-                    {/*<UserRow*/}
-                    {/*    username={"Rudiko"}*/}
-                    {/*    role={"Admin"}*/}
-                    {/*    email={"chakryan_rudik@mail.ru"}*/}
-                    {/*/>*/}
                     </tbody>
                 </table>
             </AdminCard>

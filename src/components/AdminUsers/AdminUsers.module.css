@@ -1,11 +1,11 @@
-.table{
+.table {
     width: 100%;
     border-collapse: collapse;
     overflow-x: auto;
     caption-side: bottom;
 }
 
-.delete{
+.delete {
     cursor: pointer;
     background-color: transparent;
     padding: 0;
@@ -14,25 +14,36 @@
 
 }
 
-.deleteBtn{
+.deleteBtn {
     display: flex;
     justify-content: flex-end;
 }
 
-.delete svg > path{
+.delete svg > path {
     transition: 0.3s ease-in-out;
 }
 
-.delete:hover svg > path{
+.delete:hover svg > path {
     stroke: red;
 }
 
-.head{
+.head {
     margin-bottom: 20px;
 }
 
-.userRow{
+.userRow {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     margin-bottom: 10px;
+}
+
+.select {
+    align-self: stretch;
+    outline: none;
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    color: var(--gray-700);
+    transition: 300ms;
+    border-radius: 6px;
+    font-family: var(--font-family);
 }

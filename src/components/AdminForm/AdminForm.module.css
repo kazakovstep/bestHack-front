@@ -1,21 +1,38 @@
-.wrapper{
+.wrapper {
     display: grid;
     grid-template-columns: 320px 1fr;
     grid-gap: 20px;
     grid-template-rows: 1fr;
     grid-template-areas:
     "user title"
-    "text text";
+    "text text"
+    "other button";
 }
-
-.user{
+.button{
+    grid-area: button;
+}
+.user {
     grid-area: user;
 }
 
-.title{
+.title {
     grid-area: title;
 }
 
-.text{
+.text {
     grid-area: text;
+}
+
+.select {
+    letter-spacing: 0.3rem;
+    align-self: stretch;
+    width: 100%;
+    outline: none;
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    color: var(--gray-700);
+    transition: 300ms;
+    border-radius: 6px;
+    padding: 14px 40px 14px 16px;
+    font-family: var(--font-family);
 }

@@ -1,14 +1,17 @@
-import {AdminAPI} from "./AdminAPI";
+import {AdminAPI, token} from "./AdminAPI";
 
 export const deleteUser = AdminAPI.injectEndpoints({
     endpoints: builder => ({
-        deleteUserById: builder.query<string, void>({
+        deleteUserById: builder.mutation<void, number>({
             query: (id) => ({
-                url: `/push/delete/${id}`,
-                method: "POST",
+                url: `/users/${id}`,
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                },
+                method: "DELETE"
             })
         }),
     })
 })
 
-export const {useDeleteUserByIdQuery} = deleteUser
+export const {useDeleteUserByIdMutation} = deleteUser

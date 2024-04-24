@@ -3,7 +3,7 @@ import styles from './Alert.module.css';
 import {H} from "../Htag/Htag";
 import {Button} from "../Button/Button";
 
-export const Alert = ({content, className, ...props}: AlertProps): JSX.Element => {
+export const Alert = ({className, ...props}: AlertProps): JSX.Element => {
 
     const handleCopy = () => {
         const text = document.getElementById("text") as HTMLHeadingElement
@@ -21,7 +21,13 @@ export const Alert = ({content, className, ...props}: AlertProps): JSX.Element =
                         <H type={"body"} size={"large"} className={styles.user}>admin</H>
                     </div>
                     <div className={styles.alertInfo}>
-                        <H type={"body"} size={"medium"} id={"text"}>{content}</H>
+                        <H type={"body"} size={"medium"} id={"text"}>admin adminadmin adminadmin adminadmin adminadmin
+                            adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin
+                            adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin
+                            adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin
+                            adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin
+                            adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin
+                            admin</H>
                     </div>
                 </div>
             </div>
