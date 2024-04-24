@@ -10,20 +10,24 @@ import AdminPush from "./pages/admin/push";
 import AdminUsers from "./pages/admin/users"
 import AdminRoles from "./pages/admin/settingsRoles"
 import AdminStory from "./pages/admin/storyActions"
+import {Provider} from "react-redux";
+import {store} from "./redux/store";
 
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <Routes>
-                <Route path={"/"} element={<Main/>}/>
-                <Route path={"/admin/push"} element={<AdminPush/>}/>
-                <Route path={"/admin/users"} element={<AdminUsers/>}/>
-                <Route path={"/admin/roles"} element={<AdminRoles/>}/>
-                <Route path={"/admin/story"} element={<AdminStory/>}/>
-                <Route path={"/register"} element={<Register/>}/>
-                <Route path={"/login"} element={<Login/>}/>
-            </Routes>
-        </BrowserRouter>
+        <Provider store={store}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path={"/"} element={<Main/>}/>
+                    <Route path={"/admin/push"} element={<AdminPush/>}/>
+                    <Route path={"/admin/users"} element={<AdminUsers/>}/>
+                    <Route path={"/admin/roles"} element={<AdminRoles/>}/>
+                    <Route path={"/admin/story"} element={<AdminStory/>}/>
+                    <Route path={"/register"} element={<Register/>}/>
+                    <Route path={"/login"} element={<Login/>}/>
+                </Routes>
+            </BrowserRouter>
+        </Provider>
     </React.StrictMode>,
     document.getElementById("root")
 )
