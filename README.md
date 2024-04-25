@@ -64,9 +64,8 @@ Alertify — это веб-приложение для системы уведо
 - Redis
 
 ## Участники
-- Чакрян Рудольф - frontend разработчик
-- Казаков Степан - frontend разработчик
-- Левочкин Егор -  backend разработчик
-- Сайдинов Чубак - системный-аналитик
-
+- Чакрян Рудольф - frontend разработчик https://github.com/rud1ko
+- Казаков Степан - frontend разработчик  https://github.com/kazakovstep
+- Левочкин Егор -  backend разработчик  https://github.com/veceloe
+- Сайдинов Чубак - системный-аналитик  https://github.com/Chubak-s
 
