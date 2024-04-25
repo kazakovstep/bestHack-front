@@ -1,12 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {token, User} from "./AdminAPI";
 
-export interface Push {
-    roleDestination: string,
-    title: string,
-    description: string,
-    datetime: Date
-}
 
 export const UserAPI = createApi({
     reducerPath: "UserAPI",

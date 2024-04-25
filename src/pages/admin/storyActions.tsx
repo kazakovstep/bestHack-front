@@ -4,61 +4,65 @@ import AdminCard from "../../components/AdminCard/AdminCard";
 import styles from "../../styles/AdminStoryActions.module.css";
 import cn from "classnames";
 import {H} from "../../components/Htag/Htag";
+import {useGetAllPushesQuery} from "../../redux/api/HistoryAPI";
 
 interface ActionItemProps{
-    type: "Отправка уведомления" | "Смена роли",
-    who: string
+    id: number,
+    title: string,
+    description: string
     whom: string
 }
 
-const ActionItem = ({type, who, whom}: ActionItemProps) => {
+const ActionItem = ({id, title, description, whom}: ActionItemProps) => {
     return(
         <tr className={cn(styles.userRow)}>
-            <td>{type}</td>
-            <td>{who}</td>
+            <td>{id}</td>
             <td>{whom}</td>
+            <td>{title}</td>
+            <td>{description}</td>
         </tr>
     )
 }
 
 const StoryActions = () => {
+
+    const {data: pushes} = useGetAllPushesQuery();
+
     return (
         <>
-            <AdminCard title={"История событий"}>
+            <AdminCard title={"Список уведомлений"}>
                 <table className={styles.table}>
                     <tbody>
                     <tr className={cn(styles.userRow, styles.head)}>
                         <td>
-                            <H type={"body"} size={"xxl"}>
-                                Тип события
+                            <H type={"body"} size={"large"}>
+                                ID
                             </H>
                         </td>
                         <td>
-                            <H type={"body"} size={"xxl"}>
-                                Отправитель
+                            <H type={"body"} size={"large"}>
+                                КОМУ
                             </H>
                         </td>
                         <td>
-                            <H type={"body"} size={"xxl"}>
-                                Получатель
+                            <H type={"body"} size={"large"}>
+                                ЗАГОЛОВОК
+                            </H>
+                        </td>
+                        <td>
+                            <H type={"body"} size={"large"}>
+                                КОНТЕНТ
                             </H>
                         </td>
                     </tr>
-                    <ActionItem
-                        type={"Отправка уведомления"}
-                        who={"Рудик"}
-                        whom={"Роналду"}
-                    />
-                    <ActionItem
-                        type={"Отправка уведомления"}
-                        who={"Рудик"}
-                        whom={"Роналду"}
-                    />
-                    <ActionItem
-                        type={"Отправка уведомления"}
-                        who={"Рудик"}
-                        whom={"Роналду"}
-                    />
+                    {pushes?.map((push) => (
+                        <ActionItem
+                            id={push?.id}
+                            whom={push?.roleDestination}
+                            title={push?.title}
+                            description={push?.description}
+                        />
+                    ))}
                     </tbody>
                 </table>
             </AdminCard>

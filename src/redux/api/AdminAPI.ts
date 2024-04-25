@@ -4,6 +4,7 @@ export const token = localStorage.getItem("token");
 
 export interface User {
     id: number,
+    username: string,
     email: string,
     roles: [{name: string}]
 }

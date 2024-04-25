@@ -5,7 +5,7 @@ import {H} from "../Htag/Htag";
 import cn from "classnames";
 
 interface SidebarItemProps{
-    content: "Push-уведомление" | "Список пользователей" | "Настройка ролей" | "История событий",
+    content: "Push-уведомление" | "Список пользователей" | "Настройка ролей" | "Список уведомлений",
 }
 
 const SidebarItem = ({content, ...props}: SidebarItemProps): JSX.Element => {
@@ -28,7 +28,7 @@ const SidebarItem = ({content, ...props}: SidebarItemProps): JSX.Element => {
             case "Настройка ролей":
                 switchHref("/admin/roles")
                 break
-            case "История событий":
+            case "Список уведомлений":
                 switchHref("/admin/story")
                 break
             default:

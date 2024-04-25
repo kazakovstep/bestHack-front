@@ -3,24 +3,65 @@ import styles from "../../styles/main.module.css"
 import {Alert} from "../../components/Alert/Alert";
 import {useGetAllPushesQuery} from "../../redux/api/HistoryAPI";
 import Header from "../../templates/Header/Header";
+import {useGerCurrentUserQuery} from "../../redux/api/UserAPI";
+import {token} from "../../redux/api/AdminAPI";
 
 
 const Main = () => {
 
-    const es = new EventSource("http://localhost:8080/push/get/all");
+    useEffect(() => {
+        if (!token) {
+            window.location.href = "/login"
+        }
+    }, []);
+
+    const {data: user} = useGerCurrentUserQuery();
+
 
     useEffect(() => {
-        es.onopen = () => console.log(">>> Connection opened!");
+        const es = new EventSource('http://localhost:8080/push/get/all');
 
+        es.onopen = () => console.log(">>> Connection opened for all!");
         es.onmessage = (e) => {
-            console.log(">>>", JSON.parse(e.data));
-            setMessage(JSON.parse(e.data).description)
-            setTitle(JSON.parse(e.data).title)
+            const data = JSON.parse(e.data);
+            console.log('>>>', data);
+            // Предполагаем, что setMessage и setTitle -- это функции состояния в вашем компоненте
+            setMessage(data.description);
+            setTitle(data.title);
+        };
+        es.onerror = (e) => {
+            console.log("ERROR!", e);
+        };
+
+        let roleUrl = 'http://localhost:8080/push/get/';
+        //@ts-ignore
+        if (user?.roles.length > 0) {
+            const roleName = user?.roles[0].name;
+            if (roleName === "ROLE_ADMIN") {
+                roleUrl += "admin";
+            } else if (roleName === "ROLE_USER") {
+                roleUrl += "user";
+            } else {
+                roleUrl += "employee";
+            }
         }
 
-        es.onerror = (e) => console.log("ERROR!", e);
-        return () => es.close();
-    }, []);
+        const esRole = new EventSource(roleUrl);
+
+        esRole.onopen = () => console.log(`>>> Connection opened for role: ${user?.roles[0].name}`);
+        esRole.onmessage = (e) => {
+            const data = JSON.parse(e.data);
+            console.log('Role specific >>>', data);
+        };
+        esRole.onerror = (e) => {
+            console.log("Role specific ERROR!", e);
+        };
+
+        return () => {
+            es.close();
+            esRole.close();
+        };
+    }, [user]);
 
     const [message, setMessage] = useState("");
     const [title, setTitle] = useState("");

@@ -16,8 +16,7 @@ const AdminSidebar = ({className, ...props}: AdminSidebarProps) => {
             <ul className={styles.sidebarList}>
                 <SidebarItem content={"Push-уведомление"}/>
                 <SidebarItem content={"Список пользователей"}/>
-                <SidebarItem content={"Настройка ролей"}/>
-                <SidebarItem content={"История событий"}/>
+                <SidebarItem content={"Список уведомлений"}/>
             </ul>
         </aside>
     );

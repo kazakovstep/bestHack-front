@@ -1,12 +1,9 @@
 import React, {useState} from 'react';
 import styles from './AdminUsers.module.css'
 import AdminCard from "../AdminCard/AdminCard";
-import deleteImg from '../../images/deleteUser.svg'
 import cn from "classnames";
 import {H} from "../Htag/Htag";
 import {token, useGetAllUsersQuery, User} from "../../redux/api/AdminAPI";
-import {useDeleteUserByIdMutation} from "../../redux/api/DeleteAPI";
-import {Input} from "../Input/Input";
 
 interface UserRow {
     id: number,
@@ -29,7 +26,6 @@ const DeleteButton = () => {
 
 const UserRow = ({id, username, role, email}: UserRow) => {
 
-    const [newRole, setNewRole] = useState(role);
     const handleDelete = (id: number) => {
         try {
             fetch(`http://localhost:8080/admin/users/${id}`, {
@@ -43,33 +39,32 @@ const UserRow = ({id, username, role, email}: UserRow) => {
         }
     }
 
-    const handleUpdateRole = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setNewRole(e.target.options[e.target.selectedIndex].value);
+    const handleUpdateRole = async (e: React.ChangeEvent<HTMLSelectElement>) => {
         try {
-            fetch(`http://localhost:8080/admin/users`, {
+            await fetch(`http://localhost:8080/admin/users`, {
                 method: "PUT",
                 headers: {
+                    "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`
                 },
                 body: JSON.stringify({
                     id,
                     role: [{
-                        id: newRole === "ROLE_USER" ? 1 : 2,
-                        name: newRole
+                        id: e.target.options[e.target.selectedIndex].value === "ROLE_USER" ? 1 : 2,
+                        name: e.target.options[e.target.selectedIndex].value
                     }]
                 })
-            }).catch(e => console.log(e))
+            });
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
     }
-
     return (
         <tr className={cn(styles.userRow)}>
             <td>{id}</td>
             <td>{username}</td>
             <td>
-                <select className={styles.select} value={newRole}
+                <select className={styles.select} defaultValue={role}
                         onChange={handleUpdateRole}>
                     <option value={"ROLE_ADMIN"}>ROLE_ADMIN</option>
                     <option value={"ROLE_USER"}>ROLE_USER</option>
@@ -120,7 +115,7 @@ const AdminUsers = () => {
                 {users?.map((user: User) => (
                     <UserRow
                         id={user?.id}
-                        username={"huysosi"}
+                        username={user?.username}
                         role={user?.roles[0].name}
                         email={user?.email}
                     />

@@ -2,6 +2,7 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {token} from "./AdminAPI";
 
 export interface Push {
+    id: number,
     roleDestination: string,
     title: string,
     description: string,
