@@ -14,7 +14,7 @@ const AdminForm = () => {
 
     const handlePush = () => {
         try {
-            fetch(`http://localhost:8080/push`, {
+            fetch(`http://158.160.159.255:8080/push`, {
                 method: "POST",
                 headers: {
                     "Content-Type" : "application/json",

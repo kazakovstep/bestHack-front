@@ -28,7 +28,7 @@ const UserRow = ({id, username, role, email}: UserRow) => {
 
     const handleDelete = (id: number) => {
         try {
-            fetch(`http://localhost:8080/admin/users/${id}`, {
+            fetch(`http://158.160.159.255:8080/admin/users/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Authorization": `Bearer ${token}`
@@ -41,7 +41,7 @@ const UserRow = ({id, username, role, email}: UserRow) => {
 
     const handleUpdateRole = async (e: React.ChangeEvent<HTMLSelectElement>) => {
         try {
-            await fetch(`http://localhost:8080/admin/users`, {
+            await fetch(`http://158.160.159.255:8080/admin/users`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

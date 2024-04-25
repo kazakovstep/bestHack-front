@@ -34,7 +34,7 @@ export default function Login() {
     const handleLogin = () => {
         if ((emailRegex.test(email) || email === "admin") && (passwordRegex.test(password) || password === "admin")) {
             try {
-                fetch(`http://localhost:8080/auth`, {
+                fetch(`http://158.160.159.255:8080/auth`, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'

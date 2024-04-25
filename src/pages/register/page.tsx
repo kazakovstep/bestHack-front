@@ -35,7 +35,7 @@ export default function Register() {
 
         if ((emailRegex.test(email) || email === "admin") && (passwordRegex.test(password) || password === "admin")) {
             try {
-                fetch(`http://localhost:8080/register`, {
+                fetch(`http://158.160.159.255:8080/register`, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'

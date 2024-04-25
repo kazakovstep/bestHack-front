@@ -12,7 +12,7 @@ export interface Push {
 export const HistoryAPI = createApi({
     reducerPath: "HistoryAPI",
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:8080"
+        baseUrl: "http://158.160.159.255:8080"
     }),
     endpoints: (builder) => ({
         getAllPushes: builder.query<Push[], void>({

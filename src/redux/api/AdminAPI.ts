@@ -12,7 +12,7 @@ export interface User {
 export const AdminAPI = createApi({
     reducerPath: "AdminAPI",
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:8080/admin"
+        baseUrl: "http://158.160.159.255:8080/admin"
     }),
     endpoints: (builder) => ({
         getAllUsers: builder.query<User[], void>({

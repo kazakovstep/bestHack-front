@@ -5,7 +5,7 @@ import {token, User} from "./AdminAPI";
 export const UserAPI = createApi({
     reducerPath: "UserAPI",
     baseQuery: fetchBaseQuery({
-        baseUrl: "http://localhost:8080"
+        baseUrl: "http://158.160.159.255:8080"
     }),
     endpoints: (builder) => ({
         gerCurrentUser: builder.query<User, void>({

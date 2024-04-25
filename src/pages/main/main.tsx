@@ -19,7 +19,7 @@ const Main = () => {
 
 
     useEffect(() => {
-        const es = new EventSource('http://localhost:8080/push/get/all');
+        const es = new EventSource('http://158.160.159.255:8080/push/get/all');
 
         es.onopen = () => console.log(">>> Connection opened for all!");
         es.onmessage = (e) => {
@@ -33,7 +33,7 @@ const Main = () => {
             console.log("ERROR!", e);
         };
 
-        let roleUrl = 'http://localhost:8080/push/get/';
+        let roleUrl = 'http://158.160.159.255:8080/push/get/';
         //@ts-ignore
         if (user?.roles.length > 0) {
             const roleName = user?.roles[0].name;
