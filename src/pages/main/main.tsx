@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from "../../styles/main.module.css"
 import {Alert} from "../../components/Alert/Alert";
 import {useGetAllPushesQuery} from "../../redux/api/HistoryAPI";
+import Header from "../../templates/Header/Header";
 
 
 const Main = () => {
@@ -45,11 +46,14 @@ const Main = () => {
 
 
     return (
-        <div className={styles.page}>
-            {alerts?.map((alert) => (
-                <Alert push={alert}/>
-            ))}
-        </div>
+        <>
+            <Header/>
+            <div className={styles.page}>
+                {alerts?.map((alert) => (
+                    <Alert push={alert}/>
+                ))}
+            </div>
+        </>
     );
 };
 
