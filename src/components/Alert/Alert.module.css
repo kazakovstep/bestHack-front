@@ -6,12 +6,17 @@
     height: 100%;
     padding: 1rem;
     gap: 1rem;
+    width: 90%;
 }
 
 .userInfo {
     display: flex;
-    justify-content: space-between;
+    gap: 1rem;
     align-items: center;
+}
+
+.role{
+    color: var(--gray-500);
 }
 
 .imgBlock {

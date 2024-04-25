@@ -17,10 +17,11 @@ const AdminForm = () => {
             fetch(`http://localhost:8080/push`, {
                 method: "POST",
                 headers: {
+                    "Content-Type" : "application/json",
                     "Authorization": `Bearer ${token}`
                 },
                 body: JSON.stringify({
-                    role_destination: roleDestination,
+                    roleDestination,
                     title,
                     description
                 })

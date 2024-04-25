@@ -3,31 +3,28 @@ import styles from './Alert.module.css';
 import {H} from "../Htag/Htag";
 import {Button} from "../Button/Button";
 
-export const Alert = ({className, ...props}: AlertProps): JSX.Element => {
+export const Alert = ({push, className, ...props}: AlertProps): JSX.Element => {
 
     const handleCopy = () => {
         const text = document.getElementById("text") as HTMLHeadingElement
         navigator.clipboard.writeText(text.innerText);
     }
+    var date = new Date(push?.datetime);
 
     return (
-        <div style={{display: "flex", alignItems: "flex-start"}}>
+        <div style={{display: "flex", alignItems: "flex-start", width: "100%"}}>
             <div className={styles.alert}>
                 <div className={styles.imgBlock}>
                     <img src={"../../avatar.svg"} alt={"Avatar"} className={styles.img}/>
                 </div>
                 <div className={styles.info}>
                     <div className={styles.userInfo}>
-                        <H type={"body"} size={"large"} className={styles.user}>admin</H>
+                        <H type={"body"} size={"large"} className={styles.user}>{push?.title}</H>
+                        <H type={"body"} size={"tiny"} className={styles.role}>{push?.roleDestination === "all" ?
+                        "всем" : (push?.roleDestination === "admin" ? "администраторам" : "сотрудникам")}</H>
                     </div>
                     <div className={styles.alertInfo}>
-                        <H type={"body"} size={"medium"} id={"text"}>admin adminadmin adminadmin adminadmin adminadmin
-                            adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin
-                            adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin
-                            adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin
-                            adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin
-                            adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin adminadmin
-                            admin</H>
+                        <H type={"body"} size={"medium"} id={"text"}>{push?.description}</H>
                     </div>
                 </div>
             </div>
@@ -48,7 +45,10 @@ export const Alert = ({className, ...props}: AlertProps): JSX.Element => {
                               stroke-linejoin="round"/>
                     </svg>
                 </Button>
-                <H type={"body"} size={"small"}>22.22.2222</H>
+                <H type={"body"}
+                   size={"small"}>{date?.getHours() < 10 ? "0" + String(date?.getHours()) : date?.getHours()}:{date?.getMinutes() < 10 ? "0" + String(date?.getMinutes()) : date?.getMinutes()}</H>
+                <H type={"body"}
+                   size={"small"}>{date.getDate()}.{date.getMonth() < 10 ? "0" + String(date.getMonth() + 1) : date.getMonth() + 1}.{date.getFullYear()}</H>
             </div>
         </div>
     )
