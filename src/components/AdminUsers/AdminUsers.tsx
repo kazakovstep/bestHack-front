@@ -50,7 +50,7 @@ const UserRow = ({id, username, role, email}: UserRow) => {
                 body: JSON.stringify({
                     id,
                     role: [{
-                        id: e.target.options[e.target.selectedIndex].value === "ROLE_USER" ? 1 : 2,
+                        id: e.target.options[e.target.selectedIndex].value === "ROLE_USER" ? 1 : (e.target.options[e.target.selectedIndex].value === "ROLE_ADMIN" ? 2 : 3),
                         name: e.target.options[e.target.selectedIndex].value
                     }]
                 })
@@ -67,6 +67,7 @@ const UserRow = ({id, username, role, email}: UserRow) => {
                 <select className={styles.select} defaultValue={role}
                         onChange={handleUpdateRole}>
                     <option value={"ROLE_ADMIN"}>ROLE_ADMIN</option>
+                    <option value={"ROLE_EMPLOYEE"}>ROLE_EMPLOYEE</option>
                     <option value={"ROLE_USER"}>ROLE_USER</option>
                 </select>
             </td>

@@ -52,6 +52,8 @@ const Main = () => {
         esRole.onmessage = (e) => {
             const data = JSON.parse(e.data);
             console.log('Role specific >>>', data);
+            setMessage(data.description);
+            setTitle(data.title);
         };
         esRole.onerror = (e) => {
             console.log("Role specific ERROR!", e);
